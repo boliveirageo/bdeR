@@ -1,9 +1,13 @@
 Package: bdeR
 Title: bdeR - a library in R to access IMB data.
 Version: 0.0.1
-Authors@R: person(“Bernard”, “Oliveira”, email=”bernard.oliveira@goias.gov.br”, role=c('aut','cre'))
+Authors@R: person("Bernard", "Oliveira", email="bernard.oliveira@goias.gov.br", role=c('aut','cre'))
 Description: This is a module to access data from IMB (Mauro Borges Statistic and Socioeconomic Institute)
 Depends: R (>= 3.5.1)
-License: MIT
+License: GPL-3
 Encoding: UTF-8
-Imports:httr,jsonlite
+URL: https://github.com/boliveira/bdeR/
+BugReports: https://github.com/boliveira/bdeR/issues/
+Imports:
+    httr,
+    jsonlite
