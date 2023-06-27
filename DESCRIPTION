@@ -6,6 +6,4 @@ Description: This is a module to access data from IMB (Mauro Borges Statistic an
 Depends: R (>= 3.5.1)
 License: MIT
 Encoding: UTF-8
-Imports:
-  httr,
-  jsonlite
+Imports:httr,jsonlite
