@@ -10,7 +10,13 @@ apps = data.frame(
 
 )
 
-#Function to get Locations/municipalities from BDE
+#' Function to get Locations/municipalities from BDE
+#'
+#' This is function get all  Locations/municipalities from Goias in Statistics Database
+#' Not require parameters
+#'
+#' @example getLocation()
+
 getLocation = function(){
 
   urldata = paste(apps$urlMain,apps$Location,sep="")
@@ -21,6 +27,15 @@ getLocation = function(){
 }
 
 #Function to get variables from BDE
+#'
+#' This is function get all  Locations/municipalities from Goias in Statistics Database
+#'
+#' @param codVar Variable code in Statistics Database. Parameter not required
+#'
+#' @examples getVariables() All variables in tatistics Database
+#'           getVariables(codVar=1) Get information variable code 1
+#'
+
 getVariables = function(codVar=NULL){
 
   parameter = paste(apps$Variables,codVar,sep="")
@@ -32,7 +47,18 @@ getVariables = function(codVar=NULL){
   return(datadf)
 }
 
-#Function to get
+#Function to get all data from Statistics Database
+#'
+#' This is function get all  Locations/municipalities from Goias in Statistics Database
+#'
+#' @param codVar Variable code in Statistics Database. Parameter not required
+#' @param codibge IBGE code. But insert 'T' to get all Locations/municipalities from Goias in Statistics Database
+#' @param initialyear
+#' @param finalyear
+#' @param timeseries
+#'
+#' @example getdata(codVar='1;2') Access data from Statistics Database of IMB in variables code of 1 and 2
+
 getData = function(codVar=15,codibge='T',initialyear=NULL,finalyear=NULL,
                    timeseries=NULL){
 
