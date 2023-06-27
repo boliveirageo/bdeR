@@ -6,7 +6,8 @@ This is a module to access data from IMB (Mauro Borges Statistic and Socioeconom
 can be found at https://painelmunicipal.imb.go.gov.br/ by entering variable code, IBGE code or location IMB code.
 
 Install from github: 
-install.packages("devtools").
+
+install.packages("devtools")
 library(devtools)
 
 install_github("boliveira/bdeR")
