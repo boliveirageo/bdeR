@@ -20,9 +20,9 @@ apps = data.frame(
 getLocation = function(){
 
   urldata = paste(apps$urlMain,apps$Location,sep="")
-  dataApi = GET(urldata)
+  dataApi = httr::GET(urldata)
 
-  datadf = fromJSON(rawToChar(dataApi$content),flatten = TRUE)
+  datadf = jsonlite::fromJSON(rawToChar(dataApi$content),flatten = TRUE)
   return(datadf)
 }
 
@@ -95,8 +95,8 @@ getData = function(codVar=15,codibge='T',initialyear=NULL,finalyear=NULL,
   urldata = paste(apps$urlMain,parameter,sep="")
 
   #Accessing data from API
-  dataApi = GET(urldata)
-  datadf = fromJSON(rawToChar(dataApi$content),flatten = TRUE)
+  dataApi = httr::GET(urldata)
+  datadf = jsonlite::fromJSON(rawToChar(dataApi$content),flatten = TRUE)
 
   #Create dataframe empty
   df = data.frame()
