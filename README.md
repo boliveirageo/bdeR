@@ -7,10 +7,10 @@ can be found at https://painelmunicipal.imb.go.gov.br/ by entering variable code
 
 Install from github: 
 
-# install.packages("devtools")
-# library(devtools)
+ install.packages("devtools")
+ library(devtools)
 
-install_github("boliveira/bdeR")
+ install_github("boliveira/bdeR")
 
  Usage:
 
