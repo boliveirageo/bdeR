@@ -65,16 +65,41 @@ getData = function(codVar=15,codibge='T',initialyear=NULL,finalyear=NULL,
                       anoinicial,anofinal,ultimoano,periodo,seriehistorica,
                       auxvar,auxund,auxvarfnt,auxfnt,auxvarnota,auxnota,sep="")
   
-  
+  #Generating the api address
   urldata = paste(apps$urlMain,parameter,sep="")
-  print(urldata)
-  dataApi = GET(urldata)
   
+  #Accessing data from API
+  dataApi = GET(urldata)
   datadf = fromJSON(rawToChar(dataApi$content),flatten = TRUE)
-  return(datadf)
+  
+  #Create dataframe empty
+  df = data.frame()
+  
+  #Loop all rows in dataset
+  for(i in rownames(datadf)){
+    #Create new empty row
+    rows = c()
+    
+    for(j in colnames(datadf)){
+      
+      #Verify columns in dataset.
+      col = strsplit(j, split='.',fixed=T)[[1]]
+      if(col[1] == 'anos'){
+        rows2 = rows
+        rows2["ano"] = col[2]
+        rows2["valor"] = datadf[i,j]
+        
+        newdf = data.frame(t(rows2))
+        df = rbind(df,newdf)   
+      
+      }else{
+        if(col[1] != 'fontes'){
+          rows[j] = datadf[i,j]
+        }
+      }
+    }
+  }
+  
+  #Return dataset
+  return(df)
 }
-
-
-locations = getLocation()
-varia = getVariables(codVar=15)
-data = getData(codVar='15;17',timeseries=5)
