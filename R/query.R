@@ -41,9 +41,9 @@ getVariables = function(codVar=NULL){
   parameter = paste(apps$Variables,codVar,sep="")
   urldata = paste(apps$urlMain,parameter,sep="")
 
-  dataApi = GET(urldata)
+  dataApi = httr::GET(urldata)
 
-  datadf = fromJSON(rawToChar(dataApi$content),flatten = TRUE)
+  datadf = jsonlite::fromJSON(rawToChar(dataApi$content),flatten = TRUE)
   return(datadf)
 }
 
