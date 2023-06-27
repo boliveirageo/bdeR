@@ -9,10 +9,8 @@ Install from github:
 
  install.packages("devtools")
  
- library(devtools)
+ devtools::install_github("boliveirageo/bdeR")
 
-
- install_github("boliveira/bdeR")
 
  Usage:
 
