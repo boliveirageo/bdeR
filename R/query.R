@@ -93,7 +93,7 @@ getData = function(codVar=15,codibge='T',initialyear=NULL,finalyear=NULL,
 
   #Generating the api address
   urldata = paste(apps$urlMain,parameter,sep="")
-  print(urldata)
+
   #Accessing data from API
   dataApi = httr::GET(urldata)
   datadf = jsonlite::fromJSON(rawToChar(dataApi$content),flatten = TRUE)
@@ -105,19 +105,20 @@ getData = function(codVar=15,codibge='T',initialyear=NULL,finalyear=NULL,
   for(i in rownames(datadf)){
     #Create new empty row
     rows = c()
-
+    print(i)
     for(j in colnames(datadf)){
 
       #Verify columns in dataset.
       col = strsplit(j, split='.',fixed=T)[[1]]
       if(col[1] == 'anos'){
-        rows2 = rows
-        rows2["ano"] = col[2]
-        rows2["valor"] = datadf[i,j]
+        if (!is.na(datadf[i,j])){
+          rows2 = rows
+          rows2["ano"] = col[2]
+          rows2["valor"] = datadf[i,j]
 
-        newdf = data.frame(t(rows2))
-        df = rbind(df,newdf)
-
+          newdf = data.frame(t(rows2))
+          df = rbind(df,newdf)
+        }
       }else{
         if(col[1] != 'fontes'){
           rows[j] = datadf[i,j]
@@ -129,3 +130,5 @@ getData = function(codVar=15,codibge='T',initialyear=NULL,finalyear=NULL,
   #Return dataset
   return(df)
 }
+
+data <- getData(codVar='1;2')
