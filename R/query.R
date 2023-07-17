@@ -131,4 +131,3 @@ getData = function(codVar=15,codibge='T',initialyear=NULL,finalyear=NULL,
   return(df)
 }
 
-data <- getData(codVar='1;2')
