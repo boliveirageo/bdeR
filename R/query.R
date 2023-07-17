@@ -93,7 +93,7 @@ getData = function(codVar=15,codibge='T',initialyear=NULL,finalyear=NULL,
 
   #Generating the api address
   urldata = paste(apps$urlMain,parameter,sep="")
-
+  print(urldata)
   #Accessing data from API
   dataApi = httr::GET(urldata)
   datadf = jsonlite::fromJSON(rawToChar(dataApi$content),flatten = TRUE)
