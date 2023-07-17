@@ -105,7 +105,7 @@ getData = function(codVar=15,codibge='T',initialyear=NULL,finalyear=NULL,
   for(i in rownames(datadf)){
     #Create new empty row
     rows = c()
-    print(i)
+
     for(j in colnames(datadf)){
 
       #Verify columns in dataset.
