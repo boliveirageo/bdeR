@@ -73,7 +73,7 @@ getData = function(codVar=15,codibge='T',initialyear=NULL,finalyear=NULL,
   }
 
   #Parameters
-  codibge < paste('|',toString(codibge),sep='')
+  codibge <- paste('|',toString(codibge),sep='')
   codvarbde <- paste('|',toString(codVar),sep='')
   anoinicial <- paste('|',initialyear,sep='')
   anofinal <- paste('|',finalyear,sep='')
